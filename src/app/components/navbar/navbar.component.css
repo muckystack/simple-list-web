@@ -1,0 +1,18 @@
+nav.nav {
+  min-width: 160px;
+  margin-right: 10px;
+}
+
+nav.nav a.nav-link {
+  color: #201E28;
+}
+
+nav.nav a.nav-link.disabled {
+  color: #aaa6b3;
+}
+
+nav.nav a.nav-link.active {
+  background-color: #201E28;
+  color: white;
+  border-radius: 7px;
+}

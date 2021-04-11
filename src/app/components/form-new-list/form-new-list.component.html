@@ -1,0 +1,14 @@
+<form class="w-100" action="#">
+  <app-title5 [label]="label"></app-title5>
+  <div class="mt-2">
+    <label for="code">Código:</label>
+    <input id="code" type="text" placeholder="Ingresa el nuevo código" [value]="list.code">
+  </div>
+  <div class="mt-2">
+    <label for="description">Descripción:</label>
+    <input id="description" type="text" placeholder="Nueva descripción" [value]="list.description">
+  </div>
+  <div>
+    <app-btn-save></app-btn-save>
+  </div>
+</form>

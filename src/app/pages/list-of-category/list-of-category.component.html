@@ -10,7 +10,7 @@
         <button type="button" class="btn my-btn bg-secondary btn-save-category ml-3" (click)="list = listOrigin; busqueda = '';">Limpiar</button>
       </div>
     </form>
-    <app-list *ngFor="let item of list" [list]="item" [category]="category" (changeList)="getListOfCateoryId($event)"></app-list>
+    <app-list *ngFor="let item of list" [list]="item" (changeList)="getListOfCateoryId($event)"></app-list>
   </div>
   <app-aside-list (changeList)="getListOfCateoryId($event)"></app-aside-list>
 </div>

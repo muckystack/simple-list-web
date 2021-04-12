@@ -18,6 +18,7 @@ export class CategoriesComponent {
     if (event) {
       this._categoryService.getAllCategories().subscribe((response) => {
         this.categories = response.category;
+        localStorage.setItem('categories', JSON.stringify(this.categories));
       });
     }
   }

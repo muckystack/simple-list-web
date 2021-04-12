@@ -12,7 +12,6 @@ import { ListService } from 'src/app/services/list.service';
 export class ListOfCategoryComponent {
   public list: [ListModel] = [new ListModel('', '', '', '', '')];
   public listOrigin: [ListModel] = [new ListModel('', '', '', '', '')];
-  public category: CategoryModel = new CategoryModel('', '');
   public busqueda: string = '';
 
   constructor(

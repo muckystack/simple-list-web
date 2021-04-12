@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryModel } from 'src/app/models/category.model';
 import { ListModel } from 'src/app/models/list.model';
+import { CategoryService } from 'src/app/services/category.service';
 import { ListService } from 'src/app/services/list.service';
 
 @Component({
@@ -10,21 +11,33 @@ import { ListService } from 'src/app/services/list.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   @Input() list: ListModel = new ListModel('', '', '', '', '');
-  @Input() category: CategoryModel = new CategoryModel('', '');
   @Output() changeList: EventEmitter<boolean> = new EventEmitter();
 
   public label = '';
 
   public icon = [faEdit, faTrash];
 
-  closeResult: string = '';
+  public closeResult: string = '';
+
+  private category: CategoryModel = new CategoryModel('', '');
 
   constructor(
     private modalService: NgbModal,
-    private _listService: ListService
+    private _listService: ListService,
+    private _categoryService: CategoryService
   ) {}
+  ngOnInit(): void {
+    let categories:any = localStorage.getItem('categories');
+    categories = JSON.parse(categories);
+    categories.map((category: CategoryModel) => {
+      if(category.id == this.list.category_fk) {
+        this.category = category;
+      }
+    })
+    // this.category = JSON.parse(category);
+  }
 
   openLg(content: any) {
     this.modalService.open(content, { size: 'lg' });

@@ -11,7 +11,9 @@ import { ListService } from 'src/app/services/list.service';
 })
 export class ListOfCategoryComponent {
   public list: [ListModel] = [new ListModel('', '', '', '', '')];
+  public listOrigin: [ListModel] = [new ListModel('', '', '', '', '')];
   public category: CategoryModel = new CategoryModel('', '');
+  public busqueda: string = '';
 
   constructor(
     private _listService: ListService,
@@ -26,7 +28,19 @@ export class ListOfCategoryComponent {
         .getListOfCateoryId(this._activatedRoute.snapshot.params.id)
         .subscribe((response) => {
           this.list = response.list;
+          this.listOrigin = this.list;
         });
     }
+  }
+
+  filterCategory() {
+    this.list = [new ListModel('', '', '', '', '')];
+    this.list.pop();
+
+    this.listOrigin.map((item: ListModel) => {
+      if (item.code.toUpperCase().indexOf(this.busqueda.toUpperCase()) != -1) {
+        this.list.push(item);
+      }
+    });
   }
 }

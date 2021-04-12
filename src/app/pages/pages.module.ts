@@ -8,10 +8,19 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from '../interceptors/interceptor.service';
 import { CategoriesComponent } from './categories/categories.component';
 import { ListOfCategoryComponent } from './list-of-category/list-of-category.component';
+import { WidgetsModule } from '../widgets/widgets.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [PagesComponent, CategoriesComponent, ListOfCategoryComponent],
-  imports: [CommonModule, RouterModule, ComponentsModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ComponentsModule,
+    HttpClientModule,
+    WidgetsModule,
+    FormsModule,
+  ],
   exports: [PagesComponent],
   providers: [
     {

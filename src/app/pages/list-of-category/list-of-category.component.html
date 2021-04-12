@@ -1,5 +1,15 @@
 <div class="w-100 d-flex">
   <div class="w-100">
+    <form class="w-100" (ngSubmit)="filterCategory()">
+      <div>
+        <label for="name">Filtrar:</label>
+      </div>
+      <div class="mb-5 d-flex">
+        <input id="name" type="text" placeholder="Buscar registro" autocomplete="off" [(ngModel)]="busqueda" [ngModelOptions]="{standalone: true}">
+        <button type="submit" class="btn my-btn btn-save-category ml-3">Buscar</button>
+        <button type="button" class="btn my-btn bg-secondary btn-save-category ml-3" (click)="list = listOrigin; busqueda = '';">Limpiar</button>
+      </div>
+    </form>
     <app-list *ngFor="let item of list" [list]="item" [category]="category" (changeList)="getListOfCateoryId($event)"></app-list>
   </div>
   <app-aside-list (changeList)="getListOfCateoryId($event)"></app-aside-list>

@@ -38,7 +38,10 @@ export class ListOfCategoryComponent {
     this.list.pop();
 
     this.listOrigin.map((item: ListModel) => {
-      if (item.code.toUpperCase().indexOf(this.busqueda.toUpperCase()) != -1) {
+      if (
+        item.code.toUpperCase().indexOf(this.busqueda.toUpperCase()) != -1 ||
+        item.description.toUpperCase().indexOf(this.busqueda.toUpperCase()) != -1
+      ) {
         this.list.push(item);
       }
     });

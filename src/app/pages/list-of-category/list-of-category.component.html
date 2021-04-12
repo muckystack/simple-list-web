@@ -1,6 +1,6 @@
 <div class="w-100 d-flex">
   <div class="w-100">
-    <app-list *ngFor="let item of list" [list]="item" [category]="category"></app-list>
+    <app-list *ngFor="let item of list" [list]="item" [category]="category" (changeList)="getListOfCateoryId($event)"></app-list>
   </div>
-  <app-aside-list></app-aside-list>
+  <app-aside-list (changeList)="getListOfCateoryId($event)"></app-aside-list>
 </div>

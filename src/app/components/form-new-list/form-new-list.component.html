@@ -1,12 +1,12 @@
-<form class="w-100" action="#">
+<form class="w-100" (ngSubmit)="onSubmit()">
   <app-title5 [label]="label"></app-title5>
   <div class="mt-2">
     <label for="code">Código:</label>
-    <input id="code" type="text" placeholder="Ingresa el nuevo código" [value]="list.code">
+    <input id="code" type="text" placeholder="Ingresa el nuevo código" [(ngModel)]="list.code" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="mt-2">
     <label for="description">Descripción:</label>
-    <input id="description" type="text" placeholder="Nueva descripción" [value]="list.description">
+    <input id="description" type="text" placeholder="Nueva descripción" [(ngModel)]="list.description" [ngModelOptions]="{standalone: true}">
   </div>
   <div>
     <app-btn-save></app-btn-save>

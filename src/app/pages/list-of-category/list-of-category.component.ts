@@ -10,22 +10,24 @@ import { ListService } from 'src/app/services/list.service';
   styleUrls: ['./list-of-category.component.css'],
 })
 export class ListOfCategoryComponent {
-  public list: [ListModel] = [new ListModel('', '', '', '')];
+  public list: [ListModel] = [new ListModel('', '', '', '', '')];
   public category: CategoryModel = new CategoryModel('', '');
 
   constructor(
     private _listService: ListService,
-    private _activeRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute
   ) {
     this.getListOfCateoryId();
   }
 
-  getListOfCateoryId() {
-    this._listService
-      .getListOfCateoryId(this._activeRoute.snapshot.params.id)
-      .subscribe((response) => {
-        this.list = response.list;
-        console.log(this.list);
-      });
+  getListOfCateoryId(event: boolean = true) {
+    if (event) {
+      this._listService
+        .getListOfCateoryId(this._activatedRoute.snapshot.params.id)
+        .subscribe((response) => {
+          this.list = response.list;
+          console.log(this.list);
+        });
+    }
   }
 }

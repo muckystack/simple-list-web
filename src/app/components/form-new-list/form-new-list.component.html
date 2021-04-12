@@ -2,7 +2,7 @@
   <app-title5 [label]="label"></app-title5>
   <div class="mt-2">
     <label for="code">Código:</label>
-    <input id="code" type="text" placeholder="Ingresa el nuevo código" autocomplete="off" [(ngModel)]="list.code" [ngModelOptions]="{standalone: true}">
+    <input id="code" type="text" placeholder="Ingresa el nuevo código" appAutofocus autocomplete="off" [(ngModel)]="list.code" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="mt-2">
     <label for="description">Descripción:</label>

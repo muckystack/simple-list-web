@@ -2,7 +2,7 @@
   <app-title5 [label]="label"></app-title5>
   <div>
     <label for="name">Nombre de la categoría:</label>
-    <input id="name" type="text" placeholder="Nombre de nueva categoría" [(ngModel)]="category.name" [ngModelOptions]="{standalone: true}">
+    <input id="name" type="text" placeholder="Nombre de nueva categoría" appAutofocus [(ngModel)]="category.name" [ngModelOptions]="{standalone: true}">
   </div>
   <div>
     <app-btn-save></app-btn-save>

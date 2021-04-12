@@ -26,7 +26,6 @@ export class ListOfCategoryComponent {
         .getListOfCateoryId(this._activatedRoute.snapshot.params.id)
         .subscribe((response) => {
           this.list = response.list;
-          console.log(this.list);
         });
     }
   }

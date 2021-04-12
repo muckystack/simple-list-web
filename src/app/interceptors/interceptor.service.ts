@@ -20,19 +20,13 @@ export class InterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-
-    console.log('Paso por el interceptor');
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
     });
 
     const reqClone = req.clone({ headers });
 
-    return next.handle(reqClone).pipe(
-      catchError(this.tryError)
-    );
-
+    return next.handle(reqClone).pipe(catchError(this.tryError));
   }
 
   tryError(error: HttpErrorResponse) {

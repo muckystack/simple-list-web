@@ -14,11 +14,10 @@ export class CategoriesComponent {
     this.getAllCategories();
   }
 
-  getAllCategories(event:boolean = true) {
-    if(event) {
+  getAllCategories(event: boolean = true) {
+    if (event) {
       this._categoryService.getAllCategories().subscribe((response) => {
         this.categories = response.category;
-        console.log(this.categories);
       });
     }
   }

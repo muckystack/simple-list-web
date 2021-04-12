@@ -18,9 +18,7 @@ export class FormNewListComponent implements OnInit {
   constructor(
     private _listServide: ListService,
     private _activatedRoute: ActivatedRoute
-  ) {
-    console.log(this._activatedRoute.snapshot.params.id);
-  }
+  ) {}
 
   ngOnInit(): void {
     this.label = this.list.id == '' ? 'Nuevo listado' : 'Edita listado';
@@ -33,8 +31,6 @@ export class FormNewListComponent implements OnInit {
         this.createItem.emit(true);
       });
     } else {
-      console.log(this.list);
-
       this._listServide.editList(this.list).subscribe((response) => {
         this.createItem.emit(true);
       });

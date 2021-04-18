@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivationEnd, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { CategoryModel } from 'src/app/models/category.model';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,7 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  @Input() categories: [CategoryModel] = [new CategoryModel('', '')];
   public label: String = '';
   public titleSubs$: Subscription;
 

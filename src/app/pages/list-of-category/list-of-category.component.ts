@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CategoryModel } from 'src/app/models/category.model';
 import { ListModel } from 'src/app/models/list.model';
 import { ListService } from 'src/app/services/list.service';
@@ -9,7 +9,7 @@ import { ListService } from 'src/app/services/list.service';
   templateUrl: './list-of-category.component.html',
   styleUrls: ['./list-of-category.component.css'],
 })
-export class ListOfCategoryComponent {
+export class ListOfCategoryComponent implements OnInit {
   public list: [ListModel] = [new ListModel('', '', '', '', '', '')];
   public listOrigin: [ListModel] = [new ListModel('', '', '', '', '', '')];
   public busqueda: string = '';
@@ -21,13 +21,21 @@ export class ListOfCategoryComponent {
     this.getListOfCateoryId();
   }
 
+  ngOnInit(): void {
+    this._activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      this.getListOfCateoryId();
+    });
+  }
+
   getListOfCateoryId(event: boolean = true) {
     if (event) {
       this._listService
         .getListOfCateoryId(this._activatedRoute.snapshot.params.id)
         .subscribe((response) => {
           this.listOrigin = response.list;
-          (this.busqueda == '') ? this.list = response.list : this.filterCategory();
+          this.busqueda == ''
+            ? (this.list = response.list)
+            : this.filterCategory();
         });
     }
   }
@@ -39,7 +47,8 @@ export class ListOfCategoryComponent {
     this.listOrigin.map((item: ListModel) => {
       if (
         item.code.toUpperCase().indexOf(this.busqueda.toUpperCase()) != -1 ||
-        item.description.toUpperCase().indexOf(this.busqueda.toUpperCase()) != -1
+        item.description.toUpperCase().indexOf(this.busqueda.toUpperCase()) !=
+          -1
       ) {
         this.list.push(item);
       }

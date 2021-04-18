@@ -26,8 +26,8 @@ export class ListOfCategoryComponent {
       this._listService
         .getListOfCateoryId(this._activatedRoute.snapshot.params.id)
         .subscribe((response) => {
-          this.list = response.list;
-          this.listOrigin = this.list;
+          this.listOrigin = response.list;
+          (this.busqueda == '') ? this.list = response.list : this.filterCategory();
         });
     }
   }

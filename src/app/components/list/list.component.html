@@ -3,6 +3,9 @@
     <app-title6 label="{{ list.code }}"></app-title6>
     <p class="description">{{ list.description }}</p>
   </div>
+  <a *ngIf="list.link" [href]="list.link" target="_blank" class="card-header card-icon d-flex justify-content-center align-items-center" style="color: white;">
+    <fa-icon [icon]="icon[2]"></fa-icon>
+  </a>
   <div class="card-header card-icon d-flex justify-content-center align-items-center" (click)="openLg(editList)">
     <fa-icon [icon]="icon[0]"></fa-icon>
   </div>

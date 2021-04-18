@@ -10,8 +10,8 @@ import { ListService } from 'src/app/services/list.service';
   styleUrls: ['./list-of-category.component.css'],
 })
 export class ListOfCategoryComponent {
-  public list: [ListModel] = [new ListModel('', '', '', '', '')];
-  public listOrigin: [ListModel] = [new ListModel('', '', '', '', '')];
+  public list: [ListModel] = [new ListModel('', '', '', '', '', '')];
+  public listOrigin: [ListModel] = [new ListModel('', '', '', '', '', '')];
   public busqueda: string = '';
 
   constructor(
@@ -33,7 +33,7 @@ export class ListOfCategoryComponent {
   }
 
   filterCategory() {
-    this.list = [new ListModel('', '', '', '', '')];
+    this.list = [new ListModel('', '', '', '', '', '')];
     this.list.pop();
 
     this.listOrigin.map((item: ListModel) => {

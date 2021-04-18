@@ -1,9 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrash, faExternalLinkSquareAlt } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryModel } from 'src/app/models/category.model';
 import { ListModel } from 'src/app/models/list.model';
-import { CategoryService } from 'src/app/services/category.service';
 import { ListService } from 'src/app/services/list.service';
 
 @Component({
@@ -12,12 +11,12 @@ import { ListService } from 'src/app/services/list.service';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  @Input() list: ListModel = new ListModel('', '', '', '', '');
+  @Input() list: ListModel = new ListModel('', '', '', '', '', '');
   @Output() changeList: EventEmitter<boolean> = new EventEmitter();
 
   public label = '';
 
-  public icon = [faEdit, faTrash];
+  public icon = [faEdit, faTrash, faExternalLinkSquareAlt];
 
   public closeResult: string = '';
 
@@ -25,17 +24,18 @@ export class ListComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private _listService: ListService,
-    private _categoryService: CategoryService
-  ) {}
+    private _listService: ListService
+  ) {
+  }
+  
   ngOnInit(): void {
-    let categories:any = localStorage.getItem('categories');
+    let categories: any = localStorage.getItem('categories');
     categories = JSON.parse(categories);
     categories.map((category: CategoryModel) => {
-      if(category.id == this.list.category_fk) {
+      if (category.id == this.list.category_fk) {
         this.category = category;
       }
-    })
+    });
     // this.category = JSON.parse(category);
   }
 

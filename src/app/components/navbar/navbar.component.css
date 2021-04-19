@@ -1,5 +1,5 @@
 nav.nav {
-  min-width: 160px;
+  min-width: 200px;
   margin-right: 10px;
 }
 
@@ -15,4 +15,8 @@ nav.nav a.nav-link.active {
   background-color: #B363C1;
   color: white;
   border-radius: 7px;
+}
+
+.myactive {
+  color: #B363C1 !important;
 }

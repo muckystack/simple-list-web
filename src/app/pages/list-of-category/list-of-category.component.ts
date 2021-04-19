@@ -3,6 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CategoryModel } from 'src/app/models/category.model';
 import { ListModel } from 'src/app/models/list.model';
 import { ListService } from 'src/app/services/list.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-list-of-category',
@@ -16,7 +17,8 @@ export class ListOfCategoryComponent implements OnInit {
 
   constructor(
     private _listService: ListService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _loadingService: LoadingService
   ) {
     this.getListOfCateoryId();
   }
@@ -29,6 +31,7 @@ export class ListOfCategoryComponent implements OnInit {
 
   getListOfCateoryId(event: boolean = true) {
     if (event) {
+      this._loadingService.loading = true;
       this._listService
         .getListOfCateoryId(this._activatedRoute.snapshot.params.id)
         .subscribe((response) => {
@@ -36,6 +39,7 @@ export class ListOfCategoryComponent implements OnInit {
           this.busqueda == ''
             ? (this.list = response.list)
             : this.filterCategory();
+          this._loadingService.loading = false;
         });
     }
   }

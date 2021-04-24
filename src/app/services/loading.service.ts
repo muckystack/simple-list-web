@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoadingService {
-  public loading:boolean = true;
+  public loading:boolean = false;
 
   constructor() { }
 }

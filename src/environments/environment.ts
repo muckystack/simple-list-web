@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://simple-list-muckystack.herokuapp.com/',
+  baseUrl: 'https://simple-list-test.herokuapp.com/',
 };
 
 /*

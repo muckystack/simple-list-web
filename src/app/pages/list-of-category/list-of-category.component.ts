@@ -11,8 +11,12 @@ import { LoadingService } from 'src/app/services/loading.service';
   styleUrls: ['./list-of-category.component.css'],
 })
 export class ListOfCategoryComponent implements OnInit {
-  public list: [ListModel] = [new ListModel('', '', '', '', '', '')];
-  public listOrigin: [ListModel] = [new ListModel('', '', '', '', '', '')];
+  public list: [ListModel] = [
+    new ListModel('', '', '', '', '', '', '', '', ''),
+  ];
+  public listOrigin: [ListModel] = [
+    new ListModel('', '', '', '', '', '', '', '', ''),
+  ];
   public busqueda: string = '';
 
   constructor(
@@ -45,7 +49,7 @@ export class ListOfCategoryComponent implements OnInit {
   }
 
   filterCategory() {
-    this.list = [new ListModel('', '', '', '', '', '')];
+    this.list = [new ListModel('', '', '', '', '', '', '', '', '')];
     this.list.pop();
 
     this.listOrigin.map((item: ListModel) => {

@@ -10,7 +10,7 @@ import { ListService } from 'src/app/services/list.service';
   styleUrls: ['./form-new-list.component.css'],
 })
 export class FormNewListComponent implements OnInit {
-  @Input() list: ListModel = new ListModel('', '', '', '', '', '');
+  @Input() list: ListModel = new ListModel('', '', '', '', '', '', '', '', '');
   @Output() createItem: EventEmitter<boolean> = new EventEmitter();
 
   public label: String = 'Nueva categoría';

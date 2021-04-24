@@ -11,7 +11,7 @@ import { ListService } from 'src/app/services/list.service';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  @Input() list: ListModel = new ListModel('', '', '', '', '', '');
+  @Input() list: ListModel = new ListModel('', '', '', '', '', '', '', '', '');
   @Output() changeList: EventEmitter<boolean> = new EventEmitter();
 
   public label = '';
@@ -25,9 +25,8 @@ export class ListComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private _listService: ListService
-  ) {
-  }
-  
+  ) {}
+
   ngOnInit(): void {
     let categories: any = localStorage.getItem('categories');
     categories = JSON.parse(categories);

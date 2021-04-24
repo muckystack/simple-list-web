@@ -1,22 +1,28 @@
 <div class="container login-container">
-  <form class="w-100 form-login">
+  <form class="w-100 form-login" (ngSubmit)="onSubmit()" [formGroup]="validateAccessForm" novalidate>
     <app-title5 [label]="label"></app-title5>
     <div class="mt-2">
       <label for="code">Correo:</label>
-      <input id="code" type="text" placeholder="Ingresa tu correo electrónico">
+      <input id="code" type="text" placeholder="Ingresa tu correo electrónico" formControlName="email" [(ngModel)]="user.email">
     </div>
+    <p class="text-danger">
+        {{ this._validationsFormService.getMessages('email', validateAccessForm) }}
+    </p>
     <div class="mt-2">
       <label for="description">Contraseña:</label>
-      <input id="description" type="text" placeholder="Ingresa una contraseña">
+      <input id="description" type="password" placeholder="Ingresa una contraseña" formControlName="password" [(ngModel)]="user.password">
     </div>
+    <p class="text-danger">
+        {{ this._validationsFormService.getMessages('password', validateAccessForm) }}
+    </p>
     <div class="mt-2">
       <div style="width: 120px;" class="d-flex">
-        <input type="checkbox" value="" id="check" class="mt-1">
+        <input type="checkbox" value="" id="check" class="mt-1" [(ngModel)]="permanentAccess" [ngModelOptions]="{standalone: true}">
         <p>Recordarme</p>
       </div>
     </div>
     <div class="d-flex justify-content-end">
-      <button type="submit" class="btn my-btn btn-save-category mt-4">Entrar</button>
+      <button type="submit" class="btn my-btn btn-save-category mt-4" [disabled]="!validateAccessForm.valid">Entrar</button>
     </div>
   </form>
 </div>

@@ -33,14 +33,14 @@ export class InterceptorService implements HttpInterceptor {
   }
 
   tryError(error: HttpErrorResponse) {
-    console.log('Sucedió un error');
+    // console.log('Sucedió un error');
     // TODO: Registrar erroe en archivo de errores
-    console.log('Registrar en el archivo de errores');
+    // console.log('Registrar en el archivo de errores');
     console.warn(error);
-    const err = error.error;
+    const err:any = error.error;
     Swal.fire({
-      icon: err.error.icon,
-      title: err.error.title,
+      icon: err.status.icon,
+      title: err.status.title,
       text: err.message
     });
     return throwError('Error');

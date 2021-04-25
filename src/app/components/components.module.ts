@@ -12,6 +12,7 @@ import { FormNewListComponent } from './form-new-list/form-new-list.component';
 import { AsideListComponent } from './aside-list/aside-list.component';
 import { FormsModule } from '@angular/forms';
 import { AutofocusDirective } from '../directives/autofocus.directive';
+import { NewCategoryButtonComponent } from './new-category-button/new-category-button.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AutofocusDirective } from '../directives/autofocus.directive';
     FormNewListComponent,
     AsideListComponent,
     AutofocusDirective,
+    NewCategoryButtonComponent
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-aside',
@@ -9,17 +7,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AsideComponent {
   @Output() changeCategories: EventEmitter<boolean> = new EventEmitter();
-  
-  public icon = faPlus;
 
-  constructor(private modalService: NgbModal) {}
+  constructor() {}
 
-  openLg(content: any) {
-    this.modalService.open(content, { size: 'lg' });
-  }
-
-  createItem(modal: any) {
-    modal.dismiss();
+  createItem() {
     this.changeCategories.emit(true);
   }
 }

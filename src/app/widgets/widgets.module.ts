@@ -36,7 +36,7 @@ import { IconWomanAvatarComponent } from './avatar/icon-woman-avatar/icon-woman-
     IconBanerTrashComponent,
     UserCardComponent,
     IconMenAvatarComponent,
-    IconWomanAvatarComponent
+    IconWomanAvatarComponent,
   ],
 })
 export class WidgetsModule {}

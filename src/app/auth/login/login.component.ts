@@ -24,7 +24,7 @@ export class LoginComponent {
     private _authService: AuthService,
     private _router: Router
   ) {
-    this.user = new UserModel('', '', '', '', '', '', '', '');
+    this.user = new UserModel('', '', '', '', '', '', '');
 
     this.validateAccessForm = this._fb.group(
       this._validationsFormService.accessValidate
@@ -36,6 +36,7 @@ export class LoginComponent {
       this.permanentAccess
         ? localStorage.setItem('token', response.token)
         : localStorage.removeItem('token');
+      localStorage.setItem('user', JSON.stringify(response.user));
       this._authService.token = response.token;
       this._router.navigate(['categories']);
     });

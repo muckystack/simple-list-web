@@ -1,0 +1,19 @@
+<div class="card">
+  <app-icon-men-avatar *ngIf="user.sex == 'MEN'" class="mb-4"></app-icon-men-avatar>
+  <app-icon-men-avatar *ngIf="user.sex == 'WOMAN'" class="mb-4"></app-icon-men-avatar>
+  <app-title5 [label]="user.username" class="font-weight-bold text-center mb-3"></app-title5>
+  <div class="options">
+    <div class="d-flex justify-content-between">
+      <app-title5 label="Perfil" class="font-weight-bold text-center mb-2"></app-title5>
+      <fa-icon [icon]="icon[0]" class="mr-2"></fa-icon>
+    </div>
+    <div class="d-flex justify-content-between">
+      <app-title5 label="Configuración" class="font-weight-bold text-center mb-2"></app-title5>
+      <fa-icon [icon]="icon[1]" class="mr-2"></fa-icon>
+    </div>
+    <div class="d-flex justify-content-between" (click)="logout()">
+      <app-title5 label="Cerrar sesión" class="font-weight-bold text-center mb-2"></app-title5>
+      <fa-icon [icon]="icon[2]" class="mr-2"></fa-icon>
+    </div>
+  </div>
+</div>

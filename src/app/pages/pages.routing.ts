@@ -10,7 +10,8 @@ const routes: Routes = [
   {
     path: 'categories',
     component: PagesComponent,
-    canActivate:[AuthGuard, ValidateTokenGuard],
+    canActivate:[AuthGuard],
+    canActivateChild: [ValidateTokenGuard],
     children: [
       {
         path: '',

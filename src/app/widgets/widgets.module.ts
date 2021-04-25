@@ -7,6 +7,10 @@ import { IconBanerNuevaCategoriaComponent } from './icon-baner-nueva-categoria/i
 import { BtnSaveComponent } from './btn-save/btn-save.component';
 import { IconBanerNewListComponent } from './icon-baner-new-list/icon-baner-new-list.component';
 import { IconBanerTrashComponent } from './icon-baner-trash/icon-baner-trash.component';
+import { UserCardComponent } from './user-card/user-card.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IconMenAvatarComponent } from './avatar/icon-men-avatar/icon-men-avatar.component';
+import { IconWomanAvatarComponent } from './avatar/icon-woman-avatar/icon-woman-avatar.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +21,11 @@ import { IconBanerTrashComponent } from './icon-baner-trash/icon-baner-trash.com
     BtnSaveComponent,
     IconBanerNewListComponent,
     IconBanerTrashComponent,
+    UserCardComponent,
+    IconMenAvatarComponent,
+    IconWomanAvatarComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   exports: [
     Title2Component,
     Title6Component,
@@ -27,6 +34,9 @@ import { IconBanerTrashComponent } from './icon-baner-trash/icon-baner-trash.com
     BtnSaveComponent,
     IconBanerNewListComponent,
     IconBanerTrashComponent,
+    UserCardComponent,
+    IconMenAvatarComponent,
+    IconWomanAvatarComponent
   ],
 })
 export class WidgetsModule {}

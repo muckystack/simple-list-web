@@ -20,7 +20,11 @@ export class ValidateTokenGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | boolean | UrlTree {
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
     return new Promise((resolve, reject) => {
       this.localToken = localStorage.getItem('token');
 
@@ -28,11 +32,22 @@ export class ValidateTokenGuard implements CanActivate {
         console.log(response);
         if (response.status.code == 'TOKEN_SUCCESS') {
           resolve(true);
-        }else {
+        } else {
           localStorage.removeItem('token');
           this._router.navigate(['auth']);
         }
       });
     });
+  }
+
+  canActivateChild(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    return this.canActivate(route, state);
   }
 }

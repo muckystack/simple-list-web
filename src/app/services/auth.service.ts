@@ -15,4 +15,8 @@ export class AuthService {
   login(user: UserModel): Observable<any> {
     return this._http.post(`${environment.baseUrl}auth/login`, user);
   }
+
+  validateToken(): Observable<any> {
+    return this._http.post(`${environment.baseUrl}auth/validatetoken`, {});
+  }
 }

@@ -8,7 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./new-register-button.component.css'],
 })
 export class NewRegisterButtonComponent {
-  @Output() changeCategories: EventEmitter<boolean> = new EventEmitter();
+  @Output() changeItem: EventEmitter<boolean> = new EventEmitter();
   @Input() modalOption: String = 'category';
   @Input() label: String = 'Nueva categoría';
 
@@ -22,6 +22,6 @@ export class NewRegisterButtonComponent {
 
   createItem(modal: any) {
     modal.dismiss();
-    this.changeCategories.emit(true);
+    this.changeItem.emit(true);
   }
 }

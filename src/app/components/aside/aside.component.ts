@@ -6,11 +6,11 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./aside.component.css'],
 })
 export class AsideComponent {
-  @Output() changeCategories: EventEmitter<boolean> = new EventEmitter();
+  @Output() changeItem: EventEmitter<boolean> = new EventEmitter();
 
   constructor() {}
 
   createItem() {
-    this.changeCategories.emit(true);
+    this.changeItem.emit(true);
   }
 }

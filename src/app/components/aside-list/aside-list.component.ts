@@ -19,8 +19,7 @@ export class AsideListComponent {
     this.modalService.open(content, { size: 'lg' });
   }
 
-  createItem(modal: any) {
-    modal.dismiss();
+  createItem() {
     this.changeList.emit(true);
   }
 }

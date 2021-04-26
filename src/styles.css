@@ -108,6 +108,11 @@ SVG {
   display: none;
 }
 
+.flex-flow-reverse {
+  display: flex;
+  justify-content: flex-end;
+}
+
 @media (max-width: 1024px) {
   nav, aside {
     display: none !important;

@@ -11,7 +11,7 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class CategoryComponent {
   @Input() category: CategoryModel = new CategoryModel('', '');
-  @Output() changeCategories: EventEmitter<boolean> = new EventEmitter();
+  @Output() changeItem: EventEmitter<boolean> = new EventEmitter();
 
   public label = '';
 
@@ -37,13 +37,13 @@ export class CategoryComponent {
     this._categoryService
       .deleteCategoyByid(this.category)
       .subscribe((response) => {
-        this.changeCategories.emit(true);
+        this.changeItem.emit(true);
         modal.dismiss();
       });
   }
 
   createItem(modal: any) {
     modal.dismiss();
-    this.changeCategories.emit(true);
+    this.changeItem.emit(true);
   }
 }

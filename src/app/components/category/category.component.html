@@ -21,7 +21,7 @@
     <div class="p-5 w-100">
       <app-form-new-category [category]="category" (createItem)="createItem(modal)"></app-form-new-category>
     </div>
-    <div class="modal-baner p-5 d-flex justify-content-center align-items-center">
+    <div class="modal-baner p-5 d-flex justify-content-center align-items-center hidden-movil">
       <app-icon-baner-nueva-categoria></app-icon-baner-nueva-categoria>
     </div>
   </div>
@@ -41,7 +41,7 @@
         <button class="btn my-btn btn-save-category mt-5" (click)="deleteCategoryById(modal)">Borrar</button>
       </div>
     </div>
-    <div class="modal-baner p-5 d-flex justify-content-center align-items-center">
+    <div class="modal-baner p-5 d-flex justify-content-center align-items-center hidden-movil">
       <app-icon-baner-trash></app-icon-baner-trash>
     </div>
   </div>

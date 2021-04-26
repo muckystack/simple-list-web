@@ -2,6 +2,9 @@
   <div class="container d-flex">
     <app-navbar [categories]="categories"></app-navbar>
     <div class="container dashboard">
+      <div class="show-movil">
+        <app-user-card></app-user-card>
+      </div>
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -1,7 +1,9 @@
 <div class="card">
-  <app-icon-men-avatar *ngIf="user.sex == 'MEN'" class="mb-4"></app-icon-men-avatar>
-  <app-icon-men-avatar *ngIf="user.sex == 'WOMAN'" class="mb-4"></app-icon-men-avatar>
-  <app-title5 [label]="user.username" class="font-weight-bold text-center mb-3"></app-title5>
+  <div class="hidden-movil">
+    <app-icon-men-avatar *ngIf="user.sex == 'MEN'" class="mb-4"></app-icon-men-avatar>
+    <app-icon-men-avatar *ngIf="user.sex == 'WOMAN'" class="mb-4"></app-icon-men-avatar>
+    <app-title5 [label]="user.username" class="font-weight-bold text-center mb-3"></app-title5>
+  </div>
   <div class="options">
     <div class="d-flex justify-content-between">
       <app-title5 label="Perfil" class="font-weight-bold text-center mb-2"></app-title5>

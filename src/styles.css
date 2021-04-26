@@ -86,12 +86,14 @@ aside {
   padding: 0px 20px;
 }
 
-aside button.btn {
+/* Button new register */
+
+button.new-register {
   padding: 20px;
   box-shadow: 0 0 20px rgb(179, 99, 193, .4);
 }
 
-aside button.btn:hover {
+button.new-register:hover {
   color: white;
   background-color: rgb(153, 86, 165);
   box-shadow: 0 0 20px rgba(179, 99, 193, 0.8);
@@ -102,8 +104,41 @@ SVG {
   width: 100%;
 }
 
+.show-movil {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   nav, aside {
     display: none !important;
+  }
+  .show-movil {
+    display: block;
+  }
+  .hidden-movil {
+    display: none !important;
+  }
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+  }
+  .options > div {
+    justify-content: space-around;
+    flex-flow: row-reverse;
+  }
+  .options > div svg {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .options {
+    flex-flow: column;
+  }
+  
+  .options > div {
+    justify-content: space-between;
+    flex-flow: row;
   }
 }

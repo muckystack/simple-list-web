@@ -1,14 +1,16 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-new-category-button',
-  templateUrl: './new-category-button.component.html',
-  styleUrls: ['./new-category-button.component.css'],
+  selector: 'app-new-register-button',
+  templateUrl: './new-register-button.component.html',
+  styleUrls: ['./new-register-button.component.css'],
 })
-export class NewCategoryButtonComponent {
+export class NewRegisterButtonComponent {
   @Output() changeCategories: EventEmitter<boolean> = new EventEmitter();
+  @Input() modalOption: String = 'category';
+  @Input() label: String = 'Nueva categoría';
 
   public icon = faPlus;
 

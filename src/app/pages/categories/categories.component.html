@@ -1,5 +1,8 @@
 <div class="w-100 d-flex">
   <div class="w-100">
+    <div class="mb-5 show-movil">
+      <app-new-register-button (changeCategories)="getAllCategories($event)"></app-new-register-button>
+    </div>
     <app-category *ngFor="let item of categories" [category]="item" (changeCategories)="getAllCategories($event)"></app-category>
   </div>
   <app-aside (changeCategories)="getAllCategories($event)"></app-aside>

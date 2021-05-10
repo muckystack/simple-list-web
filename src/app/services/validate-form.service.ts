@@ -18,6 +18,19 @@ export class ValidateFormService {
     ],
     password: ['', [Validators.required, Validators.minLength(6)]],
   };
+  
+  public registerUserValidate = {
+    email: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern('[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,3}$'),
+      ],
+    ],
+    sex: ['', [Validators.required]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    passwordConfirm: ['', [Validators.required, Validators.minLength(6)]],
+  };
 
   /* ---------------------------------FUNCTIONS OF LIBRAY---------------------------------- */
 

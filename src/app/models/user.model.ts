@@ -7,5 +7,14 @@ export class UserModel {
     public password: String,
     public role: String,
     public status: String
+    ) {}
+  }
+
+export class NewUserModel {
+  constructor(
+    public email: String,
+    public sex: String,
+    public password: String,
+    public passwordConfirm: String,
   ) {}
 }

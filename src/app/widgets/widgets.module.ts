@@ -11,6 +11,7 @@ import { UserCardComponent } from './user-card/user-card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconMenAvatarComponent } from './avatar/icon-men-avatar/icon-men-avatar.component';
 import { IconWomanAvatarComponent } from './avatar/icon-woman-avatar/icon-woman-avatar.component';
+import { IconVerifyComponent } from './icon-verify/icon-verify.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { IconWomanAvatarComponent } from './avatar/icon-woman-avatar/icon-woman-
     UserCardComponent,
     IconMenAvatarComponent,
     IconWomanAvatarComponent,
+    IconVerifyComponent,
   ],
   imports: [CommonModule, FontAwesomeModule],
   exports: [
@@ -37,6 +39,7 @@ import { IconWomanAvatarComponent } from './avatar/icon-woman-avatar/icon-woman-
     UserCardComponent,
     IconMenAvatarComponent,
     IconWomanAvatarComponent,
+    IconVerifyComponent
   ],
 })
 export class WidgetsModule {}

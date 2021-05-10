@@ -24,5 +24,10 @@
     <div class="d-flex justify-content-end">
       <button type="submit" class="btn my-btn btn-save-category mt-4" [disabled]="!validateAccessForm.valid">Entrar</button>
     </div>
+    <div class="mt-2">
+      <div class="d-flex">
+        <p style="font-size: 14px;">Aún no tienes cuenta? <a [routerLink]="['/auth/register']">Registrate</a></p>
+      </div>
+    </div>
   </form>
 </div>

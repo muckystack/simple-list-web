@@ -1,1 +1,57 @@
-<p>register works!</p>
+<div class="container login-container" *ngIf="!registrado">
+  <form class="w-100 form-login" (ngSubmit)="onSubmit()" [formGroup]="validateRegisterUserForm" novalidate>
+    <app-title5 [label]="label"></app-title5>
+    <div class="mt-2">
+      <label for="code">Correo:</label>
+      <input id="code" type="text" placeholder="Ingresa tu correo electrónico" formControlName="email" [(ngModel)]="user.email">
+    </div>
+    <p class="text-danger">
+        {{ this._validationsFormService.getMessages('email', validateRegisterUserForm) }}
+    </p>
+    <div class="mt-2">
+      <label for="sex">Género:</label>
+      <select id="sex" class="form-select" formControlName="sex" [(ngModel)]="user.sex">
+        <option value="">Selecciona un género</option>
+        <option value="MEN">Hombre</option>
+        <option value="WOMAN">Mujer</option>
+      </select>
+    </div>
+    <p class="text-danger">
+        {{ this._validationsFormService.getMessages('sex', validateRegisterUserForm) }}
+    </p>
+    <div class="mt-2">
+      <label for="password">Contraseña:</label>
+      <input id="password" type="password" placeholder="Ingresa una contraseña" formControlName="password" [(ngModel)]="user.password">
+    </div>
+    <p class="text-danger">
+        {{ this._validationsFormService.getMessages('password', validateRegisterUserForm) }}
+    </p>
+    <div class="mt-2">
+      <label for="passwordConfirm">Confirma contraseña:</label>
+      <input id="passwordConfirm" type="password" placeholder="Ingresa una contraseña" formControlName="passwordConfirm" [(ngModel)]="user.passwordConfirm">
+    </div>
+    <p class="text-danger">
+        {{ this._validationsFormService.getMessages('passwordConfirm', validateRegisterUserForm) }}
+    </p>
+    <div class="d-flex justify-content-end">
+      <button type="submit" class="btn my-btn btn-save-category mt-4" [disabled]="!validateRegisterUserForm.valid">Entrar</button>
+    </div>
+    <div class="mt-2">
+      <div class="d-flex">
+        <p style="font-size: 14px;">Ya tengo una cuenta. <a [routerLink]="['/auth']">Acceder</a></p>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="card text-center container" *ngIf="registrado">
+  <div class="card-body">
+    <h5 class="card-title">Verifica tu cuenta de correo</h5>
+    <p class="card-text">Cuando verifiques tu correo se completara tu registro.</p>
+    <app-icon-verify></app-icon-verify>
+    <p class="card-text mt-5" style="max-width: 700px;">Un correo ha sido enviado a “{{ user.email }}” con un link para verificar tu cuenta. Si no has recibido el correo por favor revisa en tu bandeja de correo no deseado.</p>
+    <div>
+      <button type="button" class="btn my-btn btn-save-category mt-5" [routerLink]="['/auth']">Acceder</button>
+    </div>
+  </div>
+</div>

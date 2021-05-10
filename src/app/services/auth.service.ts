@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { UserModel } from '../models/user.model';
+import { NewUserModel, UserModel } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   public token: string = '';
+  public email: string = '';
 
   constructor(public _http: HttpClient) {}
 
@@ -18,5 +19,9 @@ export class AuthService {
 
   validateToken(): Observable<any> {
     return this._http.post(`${environment.baseUrl}auth/validatetoken`, {});
+  }
+  
+  register(user: NewUserModel): Observable<any> {
+    return this._http.post(`${environment.baseUrl}auth/register`, user);
   }
 }

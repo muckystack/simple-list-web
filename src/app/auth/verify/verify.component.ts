@@ -8,7 +8,6 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./verify.component.css'],
 })
 export class VerifyComponent implements OnInit {
-
   public success = false;
   public error = false;
 
@@ -19,16 +18,16 @@ export class VerifyComponent implements OnInit {
 
   ngOnInit(): void {
     this._authService.token = this._activatedRoute.snapshot.params.token;
-    this._authService.verify().subscribe(
-      response => {
-        if (response.status.status.code == 'INTERNAL_SERVER_ERROR') {
-          this.success = false;
-          this.error = true;
-        } else {
-          this.success = true;
-          this.error = true;
-        }
-      },
-    );
+    this._authService.verify().subscribe((response) => {
+      if (response.status.status.code == 'INTERNAL_SERVER_ERROR') {
+        this.success = false;
+        this.error = true;
+      } else {
+        this.success = true;
+        this.error = false;
+        localStorage.setItem('user', JSON.stringify(response.user));
+        this._authService.token = response.token;
+      }
+    });
   }
 }

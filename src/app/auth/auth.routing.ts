@@ -12,9 +12,9 @@ const routes: Routes = [
     children: [
       { path: '', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'verify/:token', component: VerifyComponent },
     ],
   },
+  { path: 'auth/verify/:token', component: VerifyComponent },
 ];
 
 @NgModule({

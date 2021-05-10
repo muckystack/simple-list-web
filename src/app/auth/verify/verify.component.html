@@ -1,0 +1,18 @@
+<div class="card text-center container" *ngIf="success">
+  <div class="card-body">
+    <h5 class="card-title">Verificación correcta</h5>
+    <app-icon-verified></app-icon-verified>
+    <div>
+      <button type="button" class="btn my-btn btn-save-category mt-5" [routerLink]="['/auth']">Acceder</button>
+    </div>
+  </div>
+</div>
+
+<div class="card text-center container" *ngIf="error">
+  <div class="card-body">
+    <h5 class="card-title">Error Token Expirado</h5>
+    <div>
+      <button type="button" class="btn my-btn btn-save-category mt-5" [routerLink]="['/auth/register']">Registrarme</button>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
     const isAuth =
       state.url == '/auth' ||
       state.url == '/auth/register' ||
-      state.url == '/auth/verify';
+      state.url == '/auth/verify/:token';
 
     if (localToken == undefined && this._authService.token == '' && !isAuth)
       this._router.navigate(['auth']);

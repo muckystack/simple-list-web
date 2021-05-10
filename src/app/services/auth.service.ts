@@ -24,4 +24,8 @@ export class AuthService {
   register(user: NewUserModel): Observable<any> {
     return this._http.post(`${environment.baseUrl}auth/register`, user);
   }
+  
+  verify(): Observable<any> {
+    return this._http.post(`${environment.baseUrl}auth/verify`, {});
+  }
 }

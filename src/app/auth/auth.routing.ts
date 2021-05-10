@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       { path: '', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'verify', component: VerifyComponent },
+      { path: 'verify/:token', component: VerifyComponent },
     ],
   },
 ];
